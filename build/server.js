@@ -24,6 +24,6 @@ site.get("*", function(req, res) {
 });
 
 // Actually listen
-site.listen(process.env.C9_PORT);
+site.listen(8000);
 
 console.log("Server listening on http://localhost:8000");
