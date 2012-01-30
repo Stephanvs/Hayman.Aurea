@@ -4,38 +4,66 @@
 jQuery(function($) {
 
   // Shorthand the application namespace
-  var app = namespace.app;
+  var app = hayman.app;
 
-  // Include the example module
-  var Example = namespace.module("example");
+  // Load the modules used by the application
+  var Dashboard = hayman.module("dashboard");
+  var MetaItem = hayman.module("metaitem");
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
+    
     routes: {
-      "": "index",
-      ":hash": "index"
+      // Dashboard
+      "": "dashboard",
+      ":hash": "dashboard",
+      "dashboard": "dashboard",
+
+      // MetaItem Creation
+      "metaitem/create": "metaitemcreate",
+
+      // Search
+      "search/:query": "search"
     },
 
-    index: function(hash) {
+    renderer: function(el) {
+      $("#main").html(el);
+
+      // Fix for hashes in pushState and hash fragment
+      if (hash && !route._alreadyTriggered) {
+        // Reset to home, pushState support automatically converts hashes
+        Backbone.history.navigate("", false);
+
+        // Trigger the default browser behavior
+        location.hash = hash;
+
+        // Set an internal flag to stop recursive looping
+        route._alreadyTriggered = true;
+      }
+    },
+
+    dashboard: function(hash) {
+
       var route = this;
-      var tutorial = new Example.Views.Tutorial();
+      var view = new Dashboard.Views.Dashboard();
 
       // Attach the tutorial to the DOM
-      tutorial.render(function(el) {
-        $("#main").html(el);
+      view.render(this.renderer);
+    },
 
-        // Fix for hashes in pushState and hash fragment
-        if (hash && !route._alreadyTriggered) {
-          // Reset to home, pushState support automatically converts hashes
-          Backbone.history.navigate("", false);
+    metaitemcreate: function () {
 
-          // Trigger the default browser behavior
-          location.hash = hash;
+      var route = this;
+      var view = new MetaItem.Views.Create();
 
-          // Set an internal flag to stop recursive looping
-          route._alreadyTriggered = true;
-        }
-      });
+      view.render(this.renderer);
+
+    },
+
+    search: function (query) {
+
+      console.log('searching for: ' + query);
+
     }
   });
   

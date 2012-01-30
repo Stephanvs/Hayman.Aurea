@@ -1,0 +1,64 @@
+<div class="row">
+	<div class="span9">
+		<h4>Dashboard</h4>
+
+		<div id="modal-from-dom" class="modal hide fade">
+			<div class="modal-header">
+				<a href="#" class="close">×</a>
+				<h3>Modal Heading</h3>
+			</div>
+			<div class="modal-body">
+				<p>One fine body…</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn primary">Primary</a>
+				<a href="#" class="btn secondary">Secondary</a>
+			</div>
+		</div>
+		<button data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" class="btn">Launch Modal</button>
+
+		<button id="btn-create-metaitem" class="btn">Create MetaItem</button>
+
+	</div>
+	<div class="span7">
+		
+		<div class="notification-center">
+			<ul class="tabs">
+				<li id="activity" class="active"><a href="activity" data-bypass>Activity</a></li>
+				<li id="messages"><a href="messages">Messages</a></li>
+				<li id="actions"><a href="actions">Actions</a></li>
+				<li id="tasks"><a href="tasks">Tasks</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane active" data-tab-id="activity">
+					<table class="condensed-table">
+						<thead>
+							<tr>
+								<th>Who</th>
+								<th>Action</th>
+								<th>Time</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="">@@Stephanvs</a></td>
+								<td>Lorum ipsum dolor sit amet</td>
+								<td>12:23pm</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="tab-pane" data-tab-id="messages">
+					This is simple tab 2's content. Now you see it!
+				</div>
+				<div class="tab-pane" data-tab-id="actions">
+					This is simple tab 3's content. It's, you know...okay.
+				</div>
+				<div class="tab-pane" data-tab-id="tasks">
+					This is simple tab 3's content. It's, you know...okay.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

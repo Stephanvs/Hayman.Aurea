@@ -4,26 +4,30 @@ var express = require("express");
 var site = express.createServer();
 
 // Determine which dist directory to use
-var dir = process.argv.length > 2 && "../dist/" + process.argv[2];
+var dir = process.argv.length > 2 && "./dist/" + process.argv[2];
+console.log(dir);
 
 // Use custom JS folder based off debug or release
 dir && site.use("/assets/js", express.static(dir + "/js"));
-dir && site.use("/assets/css", express.static(dir + "/css"));
+dir && site.use("/assets/less", express.static(dir + "/less"));
 
 // Serve static files
-site.use("/app", express.static("../app"));
-site.use("/assets", express.static("../assets"));
-site.use("/dist", express.static("../dist"));
+site.use("/app", express.static("./app"));
+site.use("/assets", express.static("./assets"));
+site.use("/dist", express.static("./dist"));
 
 // Serve favicon.ico
-site.use(express.favicon("../favicon.ico"));
+site.use(express.favicon("./favicon.ico"));
 
 // Ensure all routes go home, client side app..
 site.get("*", function(req, res) {
-  fs.createReadStream("../index.html").pipe(res);
+  fs.createReadStream("./index.html").pipe(res);
 });
 
-// Actually listen
-site.listen(process.env.PORT);
+// Determine port to listen on
+var port = process.env.PORT || 8000;
 
-console.log("Server listening on: " + process.env.PORT);
+// Actually listen
+site.listen(port);
+
+console.log("Server listening on: " + port);

@@ -1,7 +1,7 @@
 // Change *namespace* to your namespace!
 // This contains the module definition factory function, application state,
 // events, and the router.
-this.namespace = {
+this.hayman = {
   // Assist with code organization, by breaking up logical components of code
   // into modules.
   module: function() {

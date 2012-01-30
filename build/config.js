@@ -14,14 +14,24 @@ config.init({
     "dist/debug/js/libs.js": [
       "assets/js/libs/jquery.js",
       "assets/js/libs/underscore.js",
-      "assets/js/libs/backbone.js"
+      "assets/js/libs/backbone.js",
+      "assets/js/libs/hogan.js",
+      "assets/js/libs/less.js",
+      "assets/js/libs/modernizr.js",
+      "assets/js/libs/modal.js"
     ],
 
     // Application files
     "dist/debug/js/app.js": ["app/namespace.js", "app/modules/**/*.js", "app/index.js"],
 
-    // Your CSS
-    "dist/debug/css/style.css": ["assets/css/**/*.css"]
+    // LESS Styles
+    "dist/debug/less/style.less": [
+      "assets/less/variables.less",
+      "assets/less/colors.less",
+      "assets/less/mixins.less",
+      "assets/less/reset.less",
+      "assets/less/**/*.less"
+    ]
   },
 
   jst: {
@@ -35,7 +45,7 @@ config.init({
   },
 
   mincss: {
-    "dist/release/css/style.css": ["dist/debug/css/style.css"]
+    "dist/release/less/style.less": ["dist/debug/less/style.less"]
   },
 
   watch: {

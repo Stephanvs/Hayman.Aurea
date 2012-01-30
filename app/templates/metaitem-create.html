@@ -1,0 +1,92 @@
+<div class="row">
+	<div class="span16">
+
+		<div class="alert-message">
+			You are currently creating a definition in the <strong>English</strong> language.
+			<a href="" class="close">&times;</a>
+		</div>
+
+		<div class="alert-message block-message info">
+			<a href="" class="close">&times;</a>
+			<h3>What are MetaItems? <small>for detailed explanation see the <a href="#">reference documentation</a></small></h3>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+		</div>
+
+		<div class="alert-message block-message warning">
+			<a href="" class="close">&times;</a>
+			<strong>Approval Status: Unsubmitted</strong>
+			<p>This Action Type must be submitted for approval in order for it be visible to all users.</p>
+		</div>
+		
+		<form class="form-stacked">
+			
+			<h1>Give your object a name</h1>
+			<div class="clearfix">
+				<label for="input:name">Name</label>
+				<div class="input">
+					<input class="xlarge input-text" id="input:name" size="30" type="text" /> 
+					<span class="help-block"><span class="label notice">Examples</span> <span>company, department, employee</span></span>
+				</div>
+			</div>
+			
+			<h1>Pluralization</h1>
+			<div class="clearfix">
+				<label for="input:singular-noun">Singular Noun</label>
+				<div class="input">
+					You liked
+					<select>
+						<option selected>a</option>
+						<option>an</option>
+					</select>
+					<input class="input-text xlarge" id="input:singular-noun" size="30" type="text" />
+				</div>
+			</div>
+			<div class="clearfix">
+				<label for="input:plural-noun">Plural Noun</label>
+				<div class="input">
+					<input class="input-text xlarge" id="input:plural-noun" size="30" type="text" />
+				</div>
+			</div>
+			
+			<h1>Describe your object</h1>
+			<table class="zebra-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Sample</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>URL</td>
+						<td>URL</td>
+						<td>http://api.hayman.com/123545245/{your-object}</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>name</td>
+						<td>text</td>
+						<td><input type="text" class="span4" /></td>
+						<td><a href="" class="close">&times;</a></td>
+					</tr>
+					<tr>
+						<td>name</td>
+						<td>text</td>
+						<td><input type="text" class="span4" /></td>
+						<td><a href="" class="close">&times;</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<a class="btn">Add another property</a> <span class="label notice">Examples</span> <span>Author, Distance, Director, Length</span>
+			
+		</form>
+		
+
+		<div class="actions">
+			<a class="btn primary" id="btn-create">Create object</a>
+			<a class="btn secondary" id="btn-cancel">Cancel</a>
+		</div>
+	</div>
+</div>
