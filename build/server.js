@@ -4,7 +4,17 @@ var express = require("express");
 var site = express.createServer();
 
 // Determine which dist directory to use
-var dir = process.argv.length > 2 && "./dist/" + process.argv[2];
+var dir = "./dist/";
+
+site.configure('development', 'debug', function() {
+    dir += "debug";
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+site.configure('production', 'release', function() {
+	dir += "release";
+	app.use(express.errorHandler());
+});
 console.log(dir);
 
 // Use custom JS folder based off debug or release
