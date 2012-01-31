@@ -4,11 +4,11 @@ var express = require("express");
 var site = express.createServer();
 
 // Determine which dist directory to use
-var dir = "./dist/";
+var dir = "../dist/";
 
 site.configure('development', 'debug', function() {
     dir += "debug";
-    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+    site.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 site.configure('production', 'release', function() {
@@ -22,16 +22,16 @@ dir && site.use("/assets/js", express.static(dir + "/js"));
 dir && site.use("/assets/less", express.static(dir + "/less"));
 
 // Serve static files
-site.use("/app", express.static("./app"));
-site.use("/assets", express.static("./assets"));
-site.use("/dist", express.static("./dist"));
+site.use("/app", express.static("../app"));
+site.use("/assets", express.static("../assets"));
+site.use("/dist", express.static("../dist"));
 
 // Serve favicon.ico
-site.use(express.favicon("./favicon.ico"));
+site.use(express.favicon("../favicon.ico"));
 
 // Ensure all routes go home, client side app..
 site.get("*", function(req, res) {
-  fs.createReadStream("./index.html").pipe(res);
+  fs.createReadStream("../index.html").pipe(res);
 });
 
 // Determine port to listen on
