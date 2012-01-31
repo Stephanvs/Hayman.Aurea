@@ -13,7 +13,7 @@ site.configure('development', 'debug', function() {
 
 site.configure('production', 'release', function() {
 	dir += "release";
-	app.use(express.errorHandler());
+	site.use(express.errorHandler());
 });
 console.log(dir);
 
