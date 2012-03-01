@@ -9,6 +9,7 @@ jQuery(function($) {
   // Load the modules used by the application
   var Dashboard = hayman.module("dashboard");
   var MetaItem = hayman.module("metaitem");
+  var Schema = hayman.module("schema");
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -21,6 +22,10 @@ jQuery(function($) {
 
       // MetaItem Creation
       "metaitem/create": "metaitemcreate",
+
+      // Schema
+      "schema": "schema",
+      "schema/dashboard": "schema",
 
       // Search
       "search/:query": "search"
@@ -59,6 +64,12 @@ jQuery(function($) {
       view.render(this.renderer);
 
     },
+
+    schema: function () {
+        var view = new Schema.Views.Dashboard();
+        
+        view.render(this.renderer);
+    }
 
     search: function (query) {
 

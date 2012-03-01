@@ -26,7 +26,8 @@
     template: "app/templates/dashboard.html",
 
     events: {
-        "click #btn-create-metaitem": "createmetaitem"
+        "click #btn-create-metaitem": "createmetaitem",
+        "click #btn-goto-schema-dashboard": "gotoschema"
     },
 
     render: function(done) {
@@ -42,6 +43,10 @@
 
     createmetaitem: function(){
         hayman.app.router.navigate('metaitem/create', true);
+    },
+    
+    gotoschema: function() {
+        hayman.app.router.navigate('schema/dashboard', true);
     }
 
   });
