@@ -2,4 +2,4 @@ dist/
 npm-debug.log
 .lock-wscript
 node_modules/grunt/node_modules/glob/build
-*.logs
+*.logs.DS_Store
